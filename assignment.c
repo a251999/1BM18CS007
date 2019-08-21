@@ -33,15 +33,15 @@ int main()
 			postfix[j]=infix[i];
 			j++;
 		}
-		else if(is_operator(infix[i]==1))
+		else if(is_operator(infix[i])==1)
 		{
+		    x=infix[i];
 
-		    while(is_operator(x)==1&&precedence(x)>=precedence(infix[i]))
+		    while(top!=-1&&precedence(x)<precedence(stack[top]))
 				{
-					postfix[j]=x;
+					postfix[j]=pop(stack,&top);
 					j++;
-					x=pop(stack,&top);
-                }
+                                 }
 				push(infix[i],stack,&top);
 
 		}
@@ -57,7 +57,7 @@ int main()
 				x=pop(stack,&top);
 				postfix[j]=x;
 				j++;
-        }
+                 }
 
 		postfix[j]='\0';
 		printf("enter postfix exp\n");
@@ -85,7 +85,7 @@ char pop(char s[100],int *t)
 }
 int is_operator(char e)
 {
-	if(e=='*'||e=='/'||e=='+'||e=='-')
+	if(e=='*'||e=='/'||e=='+'||e=='-'||e=='^')
 	{
 		return 1;
 	}
