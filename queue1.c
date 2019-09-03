@@ -48,12 +48,16 @@ int main()
         {
             case 1: printf("Enter no of elements to b inserted\n");
                     scanf("%d",&n);
+                    if(n>size)
+                        printf("Queue overflow\n");
+                    else{
                     for(i=0;i<n;i++)
                     {
                         scanf("%d",&element);
                         insert(element,queue,&rear);
                     }
                     display(queue,front,rear);
+                    }
                     break;
             case 2: if(front<=rear)
                     {
