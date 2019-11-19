@@ -109,20 +109,6 @@ NODE concatenate(NODE head,NODE first)
     p->next=head;
     return first;
 }
-NODE concatenate1(NODE head,NODE first)
-{
-    NODE p;
-    if(head==NULL)
-        return first;
-    if(first==NULL)
-        return head;
-    p=head;
-    while(p->next!=NULL)
-        p=p->next;
-    p->next=first;
-     p=head;
-    return head;
-}
 int main()
 {
     NODE head=NULL,head2=NULL;
